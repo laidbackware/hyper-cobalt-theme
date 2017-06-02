@@ -26,7 +26,8 @@ exports.decorateConfig = config => {
   config.borderColor = '#37474F';
   config.cursorColor = `${config.cursorColor || '#FFCC00'}`;
   config.padding = `${config.padding || '24px 24px'}`;
-  const confObj = Object.assign({}, config, {
+
+  return Object.assign({}, config, {
     colors: {
       black: '#000000',
       red: '#E54B4B',
@@ -43,14 +44,14 @@ exports.decorateConfig = config => {
       lightBlue: '#82AAFF',
       lightMagenta: '#C792EA',
       lightCyan: '#89DDFF',
-      lightWhite: '#ffffff',
+      lightWhite: '#ffffff'
     },
     termCSS: `
       ${config.termCSS || ''}
 
       x-screen a {
         text-decoration: underline !important;
-        color: ${Colors.lightCyan} !important;
+        color: ${ThemeConfig.accentColor || '#80CBC4'} !important;
       }
 
       ::selection {
@@ -70,7 +71,6 @@ exports.decorateConfig = config => {
       *::-webkit-scrollbar-thumb {
         background: rgba(255, 255, 255, 0.2);
       }
-
 
       *::-webkit-scrollbar-thumb:window-inactive {
         background: transparent;
@@ -125,6 +125,4 @@ exports.decorateConfig = config => {
       }
     `
   });
-
-  return confObj;
 };
