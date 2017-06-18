@@ -1,15 +1,18 @@
 // Require OS Home environment
-const OS = require('os').homedir();
 // Require hyper.js configuration from user home
-const ThemeConfig = require(OS + `/.hyper.js`).config['MaterialTheme'];
 
 // Check the enableVibrance setting and update background color
-exports.onWindow = (browserWindow) => {
-  browserWindow.setVibrancy(ThemeConfig.hasOwnProperty('vibrancy') ? ThemeConfig.vibrancy : 'dark');
-};
+
 
 exports.decorateConfig = config => {
+
+  const ThemeConfig = config.MaterialTheme;
   var ThemeBackground;
+
+  // Set vibrancy
+  exports.onWindow = (browserWindow) => {
+    browserWindow.setVibrancy(ThemeConfig.hasOwnProperty('vibrancy') ? ThemeConfig.vibrancy : 'dark');
+  };
 
   if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Palenight'.toLowerCase()) {
     ThemeBackground = `rgba(41, 45, 62, ${ThemeConfig.backgroundOpacity || '1'})`;
