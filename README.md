@@ -7,7 +7,7 @@
 This is the official [Material Theme](https://github.com/equinusocio/material-theme) porting for [Hyper App](https://hyper.is).
 
 
-## Installation
+## 1. Installation
 
 Just edit your `~/.hyper.js` file (Hyper > Preferences...) and add `hyper-material-theme` to `plugins: []` array.
 
@@ -16,11 +16,10 @@ Just edit your `~/.hyper.js` file (Hyper > Preferences...) and add `hyper-materi
 plugins: ['hyper-material-theme'],
 ...
 ```
-**Then restart the app**
 
 
-## Configuration
-This theme provides 4 additional settings that you can add in your `~/.hyper.js` file **directly after** the colors object.
+## 2. Configuration
+This theme provides settings that you MUST add in your `~/.hyper.js` file **directly after** the colors object.
 
 ```js
     colors: {...
@@ -31,14 +30,14 @@ This theme provides 4 additional settings that you can add in your `~/.hyper.js`
         // OPTIONS: 'Darker', 'Palenight', ''
         theme: '',
 
-        // Set the rgba() app background opacity, useful when enableVibrance is true
+        // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
         // OPTIONS: From 0.1 to 1
         backgroundOpacity: '1',
 
-        // Set the accent color for the current active tab
+        // [Optional] Set the accent color for the current active tab
         accentColor: '#64FFDA',
 
-        // Mac Only. Need restart. Enable the vibrance and blurred background
+        // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
         // OPTIONS: 'dark', 'ultra-dark', 'bright'
         // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
         vibrancy: 'dark'
@@ -46,3 +45,4 @@ This theme provides 4 additional settings that you can add in your `~/.hyper.js`
 
     // other configs..
 ```
+**Then restart the app**
