@@ -6,8 +6,8 @@
 
 exports.decorateConfig = config => {
 
-  const ThemeConfig = config.MaterialTheme;
-  var ThemeBackground;
+  const ThemeConfig = config.MaterialTheme || {};
+  let ThemeBackground;
 
   // Set vibrancy
   exports.onWindow = (browserWindow) => {
@@ -24,7 +24,7 @@ exports.decorateConfig = config => {
     ThemeBackground = `rgba(38, 50, 56, ${ThemeConfig.backgroundOpacity || '1'})`;
   }
 
-  config.backgroundColor = ThemeBackground;
+  config.backgroundColor = ThemeBackground || config.backgroundColor;
   config.foregroundColor = '#ECEFF1';
   config.borderColor = '#37474F';
   config.cursorColor = `${config.cursorColor || '#FFCC00'}`;
