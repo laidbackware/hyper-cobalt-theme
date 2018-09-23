@@ -20,6 +20,9 @@ exports.decorateConfig = config => {
   else if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Darker'.toLowerCase()) {
     ThemeBackground = `rgba(33, 33, 33, ${ThemeConfig.backgroundOpacity || '1'})`;
   }
+  else if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Ocean'.toLowerCase()) {
+    ThemeBackground = `rgba(9, 11, 16, ${ThemeConfig.backgroundOpacity || '1'})`;
+  }
   else {
     ThemeBackground = `rgba(38, 50, 56, ${ThemeConfig.backgroundOpacity || '1'})`;
   }
@@ -52,12 +55,12 @@ exports.decorateConfig = config => {
     termCSS: `
       ${config.termCSS || ''}
 
-      x-screen a {
+      .xterm-text-layer a {
         text-decoration: underline !important;
         color: ${ThemeConfig.accentColor || '#80CBC4'} !important;
       }
 
-      ::selection {
+      *::selection {
         background: rgba(255, 255, 255, 0.15);
       }
 
@@ -93,6 +96,11 @@ exports.decorateConfig = config => {
       .tab_tab {
         border: none;
         color: rgba(255, 255, 255, 0.2);
+        background-color: transparent;
+      }
+
+      .tab_tab:hover {
+        background-color: transparent;
       }
 
       .tab_tab::before {

@@ -27,7 +27,7 @@ This theme provides settings that you MUST add in your `~/.hyper.js` file **dire
 
     MaterialTheme: {
         // Set the theme variant,
-        // OPTIONS: 'Darker', 'Palenight', ''
+        // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
         theme: '',
 
         // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
