@@ -34,6 +34,7 @@ exports.decorateConfig = config => {
   config.padding = `${config.padding || '24px 24px'}`;
 
   return Object.assign({}, config, {
+    cursorColor: `${config.cursorColor || '#FFCC00'}`,
     colors: {
       black: '#000000',
       red: '#E54B4B',
@@ -58,10 +59,6 @@ exports.decorateConfig = config => {
       .xterm-text-layer a {
         text-decoration: underline !important;
         color: ${ThemeConfig.accentColor || '#80CBC4'} !important;
-      }
-
-      *::selection {
-        background: rgba(255, 255, 255, 0.15);
       }
 
       *::-webkit-scrollbar {
