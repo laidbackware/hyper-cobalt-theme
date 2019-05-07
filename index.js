@@ -17,9 +17,10 @@ exports.decorateConfig = config => {
 
   onWindowWithConfig(themeConfig);
 
+  const choosenTheme = (themeConfig.theme && themeConfig.theme.toLowerCase()) || 'default';
   config.backgroundColor = backgrounds(
     themeConfig.backgroundOpacity
-  )[themeConfig.theme.toLowerCase() || 'default'];
+  )[choosenTheme];
 
   config.borderColor = defaultConfig.borderColor;
   config.colors = defaultConfig.colors;
