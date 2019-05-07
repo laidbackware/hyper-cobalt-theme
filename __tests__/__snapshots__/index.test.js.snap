@@ -26,8 +26,6 @@ Object {
     "yellow": "#FAED70",
   },
   "css": "
-    .lol { background: red; }
-
     .hyper_main {
       border: none;
       background-color: rgba(38, 50, 56, 1);
@@ -78,13 +76,13 @@ Object {
     .splitpane_divider {
       background-color: rgba(0, 0, 0, 0.2) !important;
     }
+
+    .lol { background: red; }
   ",
   "cursorColor": "red",
   "foregroundColor": "#ECEFF1",
   "padding": "25px 25px",
   "termCSS": "
-    
-
     .xterm-text-layer a {
       text-decoration: underline !important;
       color: green !important;
@@ -107,6 +105,8 @@ Object {
     *::-webkit-scrollbar-thumb:window-inactive {
       background: transparent;
     }
+
+    
   ",
   "termCss": ".hyper { color: red; }",
 }
@@ -135,8 +135,6 @@ Object {
     "yellow": "#FAED70",
   },
   "css": "
-    
-
     .hyper_main {
       border: none;
       background-color: rgba(38, 50, 56, 1);
@@ -187,13 +185,13 @@ Object {
     .splitpane_divider {
       background-color: rgba(0, 0, 0, 0.2) !important;
     }
+
+    
   ",
   "cursorColor": "#FFCC00",
   "foregroundColor": "#ECEFF1",
   "padding": "24px 24px",
   "termCSS": "
-    
-
     .xterm-text-layer a {
       text-decoration: underline !important;
       color: #80CBC4 !important;
@@ -216,6 +214,8 @@ Object {
     *::-webkit-scrollbar-thumb:window-inactive {
       background: transparent;
     }
+
+    
   ",
 }
 `;
