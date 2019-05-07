@@ -12,7 +12,7 @@ const defaultConfig = {
     magenta: '#BB80B3',
     cyan: '#2DDAFD',
     white: '#d0d0d0',
-    lightBlack: 'rgba(255, 255, 255, 0.2)',
+    lightBlack: '#6b6b6b',
     lightRed: '#FF5370',
     lightGreen: '#C3E88D',
     lightYellow: '#FFCB6B',
