@@ -47,3 +47,18 @@ This theme provides settings that you MUST add in your `~/.hyper.js` file **insi
     ...
 ```
 **Then restart the app**
+
+## 3. Customizable props
+There are also some Hyper's customizable props directly from the `config` prop that will override the ones within the Material Theme default configurations:
+
+```js
+{
+  config: {
+    cursorColor: '',
+    padding: '',
+    foregroundColor: ''
+    termCss: ''
+    css: ''
+  }
+}
+```
