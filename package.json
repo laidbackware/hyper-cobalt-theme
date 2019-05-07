@@ -10,7 +10,7 @@
   },
   "scripts": {
     "lint": "xo",
-    "test": "jest"
+    "test": "yarn lint && jest"
   },
   "xo": {
     "space": true

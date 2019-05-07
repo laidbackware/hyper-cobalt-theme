@@ -29,8 +29,6 @@ exports.decorateConfig = config => {
   config.padding = config.padding || defaultConfig.padding;
   const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
-  console.log(config);
-
   config.termCSS = `
     ${config.termCSS || ''}
 
