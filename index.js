@@ -30,8 +30,6 @@ exports.decorateConfig = config => {
   const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
   config.termCSS = `
-    ${config.termCSS || ''}
-
     .xterm-text-layer a {
       text-decoration: underline !important;
       color: ${accentColor} !important;
@@ -54,11 +52,11 @@ exports.decorateConfig = config => {
     *::-webkit-scrollbar-thumb:window-inactive {
       background: transparent;
     }
+
+    ${config.termCSS || ''}
   `;
 
   config.css = `
-    ${config.css || ''}
-
     .hyper_main {
       border: none;
       background-color: ${config.backgroundColor};
@@ -109,6 +107,8 @@ exports.decorateConfig = config => {
     .splitpane_divider {
       background-color: rgba(0, 0, 0, 0.2) !important;
     }
+
+    ${config.css || ''}
   `;
 
   return {...config};
