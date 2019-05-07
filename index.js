@@ -1,136 +1,117 @@
-// Require OS Home environment
-// Require hyper.js configuration from user home
 
-// Check the enableVibrance setting and update background color
+const {defaultConfig} = require('./default.config');
+const {backgrounds} = require('./backgrounds');
 
+const onWindowWithConfig = config => {
+  exports.onWindow = browserWindow => {
+    browserWindow
+      .setVibrancy(
+        Object.prototype.hasOwnProperty.call(config, 'vibrancy') ?
+          config.vibrancy : 'dark'
+      );
+  };
+};
 
 exports.decorateConfig = config => {
+  const themeConfig = config.MaterialTheme || {};
 
-  const ThemeConfig = config.MaterialTheme || {};
-  let ThemeBackground;
+  onWindowWithConfig(themeConfig);
 
-  // Set vibrancy
-  exports.onWindow = (browserWindow) => {
-    browserWindow.setVibrancy(ThemeConfig.hasOwnProperty('vibrancy') ? ThemeConfig.vibrancy : 'dark');
-  };
+  config.backgroundColor = backgrounds(
+    themeConfig.backgroundOpacity
+  )[themeConfig.theme.toLowerCase() || 'default'];
 
-  if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Palenight'.toLowerCase()) {
-    ThemeBackground = `rgba(41, 45, 62, ${ThemeConfig.backgroundOpacity || '1'})`;
-  }
-  else if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Darker'.toLowerCase()) {
-    ThemeBackground = `rgba(33, 33, 33, ${ThemeConfig.backgroundOpacity || '1'})`;
-  }
-  else if (ThemeConfig.theme && ThemeConfig.theme.toLowerCase() == 'Ocean'.toLowerCase()) {
-    ThemeBackground = `rgba(9, 11, 16, ${ThemeConfig.backgroundOpacity || '1'})`;
-  }
-  else {
-    ThemeBackground = `rgba(38, 50, 56, ${ThemeConfig.backgroundOpacity || '1'})`;
-  }
+  config.foregroundColor = defaultConfig.foregroundColor;
+  config.borderColor = defaultConfig.borderColor;
+  config.colors = defaultConfig.colors;
 
-  config.backgroundColor = ThemeBackground || config.backgroundColor;
-  config.foregroundColor = '#ECEFF1';
-  config.borderColor = '#37474F';
-  config.cursorColor = `${config.cursorColor || '#FFCC00'}`;
-  config.padding = `${config.padding || '24px 24px'}`;
+  config.cursorColor = config.cursorColor || defaultConfig.cursorColor;
+  config.padding = config.padding || defaultConfig.padding;
+  const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
-  return Object.assign({}, config, {
-    cursorColor: `${config.cursorColor || '#FFCC00'}`,
-    colors: {
-      black: '#000000',
-      red: '#E54B4B',
-      green: '#9ECE58',
-      yellow: '#FAED70',
-      blue: '#396FE2',
-      magenta: '#BB80B3',
-      cyan: '#2DDAFD',
-      white: '#d0d0d0',
-      lightBlack: 'rgba(255, 255, 255, 0.2)',
-      lightRed: '#FF5370',
-      lightGreen: '#C3E88D',
-      lightYellow: '#FFCB6B',
-      lightBlue: '#82AAFF',
-      lightMagenta: '#C792EA',
-      lightCyan: '#89DDFF',
-      lightWhite: '#ffffff'
-    },
-    termCSS: `
-      ${config.termCSS || ''}
+  console.log(config);
 
-      .xterm-text-layer a {
-        text-decoration: underline !important;
-        color: ${ThemeConfig.accentColor || '#80CBC4'} !important;
-      }
+  config.termCSS = `
+    ${config.termCSS || ''}
 
-      *::-webkit-scrollbar {
-        width: 4px;
-        height: 4px;
-        background-color: transparent;
-      }
+    .xterm-text-layer a {
+      text-decoration: underline !important;
+      color: ${accentColor} !important;
+    }
 
-      *::-webkit-scrollbar-track {
-        background-color: transparent;
-      }
+    *::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      background-color: transparent;
+    }
 
-      *::-webkit-scrollbar-thumb {
-        background: rgba(255, 255, 255, 0.2);
-      }
+    *::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
 
-      *::-webkit-scrollbar-thumb:window-inactive {
-        background: transparent;
-      }
-    `,
-    css: `
-      ${config.css || ''}
+    *::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+    }
 
-      .hyper_main {
-        border: none;
-      }
+    *::-webkit-scrollbar-thumb:window-inactive {
+      background: transparent;
+    }
+  `;
 
-      .tabs_borderShim {
-        display: none;
-      }
+  config.css = `
+    ${config.css || ''}
 
-      .tab_tab {
-        border: none;
-        color: rgba(255, 255, 255, 0.2);
-        background-color: transparent;
-      }
+    .hyper_main {
+      border: none;
+      background-color: ${config.backgroundColor};
+    }
 
-      .tab_tab:hover {
-        background-color: transparent;
-      }
+    .tabs_borderShim {
+      display: none;
+    }
 
-      .tab_tab::before {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background-color: ${ThemeConfig.accentColor || '#80CBC4'};
-        transform: scaleX(0);
-        transition: none;
-      }
+    .tab_tab {
+      border: none;
+      color: rgba(255, 255, 255, 0.2);
+      background-color: transparent;
+    }
 
-      .tab_tab.tab_active {
-        color: #FFF;
-      }
+    .tab_tab:hover {
+      background-color: transparent;
+    }
 
-      .tab_tab.tab_active::before {
-        transform: scaleX(1);
-        transition: all 300ms cubic-bezier(0.0, 0.0, 0.2, 1)
-      }
+    .tab_tab::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: ${accentColor};
+      transform: scaleX(0);
+      transition: none;
+    }
 
-      .tab_textInner {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 100%;
-        padding: 0px 24px 0 8px;
-      }
+    .tab_tab.tab_active {
+      color: #FFF;
+    }
 
-      .splitpane_divider {
-        background-color: rgba(0, 0, 0, 0.2) !important;
-      }
-    `
-  });
+    .tab_tab.tab_active::before {
+      transform: scaleX(1);
+      transition: all 300ms cubic-bezier(0.0, 0.0, 0.2, 1)
+    }
+
+    .tab_textInner {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
+      padding: 0px 24px 0 8px;
+    }
+
+    .splitpane_divider {
+      background-color: rgba(0, 0, 0, 0.2) !important;
+    }
+  `;
+
+  return {...config};
 };
