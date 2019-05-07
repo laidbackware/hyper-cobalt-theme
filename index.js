@@ -21,12 +21,12 @@ exports.decorateConfig = config => {
     themeConfig.backgroundOpacity
   )[themeConfig.theme.toLowerCase() || 'default'];
 
-  config.foregroundColor = defaultConfig.foregroundColor;
   config.borderColor = defaultConfig.borderColor;
   config.colors = defaultConfig.colors;
 
   config.cursorColor = config.cursorColor || defaultConfig.cursorColor;
   config.padding = config.padding || defaultConfig.padding;
+  config.foregroundColor = config.foregroundColor || defaultConfig.foregroundColor;
   const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
   config.termCSS = `
