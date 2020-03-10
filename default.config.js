@@ -1,5 +1,5 @@
 const defaultConfig = {
-  foregroundColor: '#ECEFF1',
+  foregroundColor: '#00E4B3',
   borderColor: '#37474F',
   cursorColor: '#FFCC00',
   padding: '24px 24px',
@@ -25,9 +25,9 @@ const defaultConfig = {
 };
 
 const themes = {
-  palenight: 'palenight',
-  darker: 'darker',
-  ocean: 'ocean',
+  // palenight: 'palenight',
+  // darker: 'darker',
+  // ocean: 'ocean',
   default: 'default'
 };
 

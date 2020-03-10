@@ -27,7 +27,7 @@ exports.decorateConfig = config => {
 
   config.cursorColor = config.cursorColor || defaultConfig.cursorColor;
   config.padding = config.padding || defaultConfig.padding;
-  config.foregroundColor = config.foregroundColor || defaultConfig.foregroundColor;
+  config.foregroundColor = config.foregroundColor; // || defaultConfig.foregroundColor;
   const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
   config.termCSS = `
