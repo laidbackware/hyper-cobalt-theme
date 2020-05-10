@@ -1,12 +1,12 @@
 {
-  "name": "hyper-material-theme",
-  "version": "3.0.1",
+  "name": "hyper-cobalt-theme",
+  "version": "0.9",
   "main": "index.js",
-  "homepage": "https://github.com/equinusocio/hyper-material-theme",
-  "description": "The offical Material Theme for Hyper.app",
+  "homepage": "https://github.com/laidbackware/hyper-material-cobalt-theme",
+  "description": "Cobalt Material Theme for Hyper.app",
   "repository": {
     "type": "git",
-    "url": "https://github.com/equinusocio/hyper-material-theme.git"
+    "url": "https://github.com/laidbackware/hyper-material-cobalt-theme.git"
   },
   "scripts": {
     "lint": "xo",
@@ -19,8 +19,8 @@
     "hyperterm",
     "hyper",
     "hyper.app",
-    "material",
-    "material theme"
+    "cobalt",
+    "cobalt theme"
   ],
   "author": "Mattia Astorino <astorino.design@gmail.com>",
   "license": "MIT",

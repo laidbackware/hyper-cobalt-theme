@@ -27,7 +27,7 @@ exports.decorateConfig = config => {
 
   config.cursorColor = config.cursorColor || defaultConfig.cursorColor;
   config.padding = config.padding || defaultConfig.padding;
-  config.foregroundColor = config.foregroundColor; // || defaultConfig.foregroundColor;
+  config.foregroundColor = defaultConfig.foregroundColor;
   const accentColor = themeConfig.accentColor || defaultConfig.accentColor;
 
   config.termCSS = `
@@ -106,7 +106,7 @@ exports.decorateConfig = config => {
     }
 
     .splitpane_divider {
-      background-color: rgba(0, 0, 0, 0.2) !important;
+      background-color: rgba(128, 203, 196, 0.2) !important;
     }
 
     ${config.css || ''}
