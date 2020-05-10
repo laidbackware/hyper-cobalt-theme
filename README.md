@@ -1,11 +1,6 @@
-# Material Theme for [Hyper](https://hyper.is) <img width="32" alt="Hyper Material Theme" src="https://cloud.githubusercontent.com/assets/10454741/21241774/9172ddb6-c311-11e6-91ee-e4225ab9560a.gif">
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/09664dda15e84bdf8d041a18b9dc7c73)](https://www.codacy.com/app/astorino-design/hyper-material-theme?utm_source=github.com&utm_medium=referral&utm_content=equinusocio/hyper-material-theme&utm_campaign=badger)
+# Cobalt Theme for [Hyper](https://hyper.is) <img width="32" alt="Hyper Material Theme" src="https://cloud.githubusercontent.com/assets/10454741/21241774/9172ddb6-c311-11e6-91ee-e4225ab9560a.gif">
 
 <img width="480" alt="Hyper Material Theme" src="https://cloud.githubusercontent.com/assets/10454741/21243792/bbaf728e-c31a-11e6-972f-0995e77a32a0.png">
-
-This is the official [Material Theme](https://github.com/equinusocio/material-theme) porting for [Hyper App](https://hyper.is).
-
 
 ## 1. Installation
 
@@ -25,7 +20,7 @@ This theme provides settings that you MUST add in your `~/.hyper.js` file **insi
     config: {
       MaterialTheme: {
           // Set the theme variant,
-          // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
+          // OPTIONS: 'Darker', 'Lighter', ''
           theme: '',
   
           // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
@@ -56,7 +51,6 @@ There are also some Hyper's customizable props directly from the `config` prop t
   config: {
     cursorColor: '',
     padding: '',
-    foregroundColor: ''
     termCss: ''
     css: ''
   }
